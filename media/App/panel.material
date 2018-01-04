@@ -1,0 +1,26 @@
+material panel{ 
+	technique{
+		
+		pass{
+			diffuse 0.5 0.5 0.5
+			//ambient 0.1 0.2 0.3
+			//specular 0.8 0.8 0.8 68
+			texture_unit {
+			    texture RustedMetal.jpg
+			    rotate_anim 0.01
+			    colour_op add
+			}
+
+			texture_unit
+			{
+				texture clouds.jpg
+				scroll_anim 0.03 0.0
+				scale 2 2 
+				colour_op modulate
+			}
+		}
+
+
+	}
+
+}

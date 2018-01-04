@@ -1,0 +1,15 @@
+material knot_fly { //nombre
+	technique{
+		
+		pass{
+			diffuse 0.5 0.5 0.5
+			//ambient 0.1 0.2 0.3
+			//specular 0.8 0.8 0.8 68
+			texture_unit {
+			    texture MtlPlat2.jpg
+			}
+			
+		}
+	}
+
+}

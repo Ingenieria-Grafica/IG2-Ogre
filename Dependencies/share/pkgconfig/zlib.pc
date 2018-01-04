@@ -1,0 +1,13 @@
+prefix=D:/FDI/IG2/Ogre3D_1.10.8/Dependencies
+exec_prefix=D:/FDI/IG2/Ogre3D_1.10.8/Dependencies
+libdir=D:/FDI/IG2/Ogre3D_1.10.8/Dependencies/lib
+sharedlibdir=D:/FDI/IG2/Ogre3D_1.10.8/Dependencies/lib
+includedir=D:/FDI/IG2/Ogre3D_1.10.8/Dependencies/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.11
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}
