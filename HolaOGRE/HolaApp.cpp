@@ -128,12 +128,13 @@ void HolaApp::setupScene(void)
   //Bomba
   // ParticleSystem * pSys = scnMgr->createParticleSystem("partSys", "smoke"); // (nombre,nombre script)
   Ogre::SceneNode * nodeBomb = scnMgr->getRootSceneNode()->createChildSceneNode("nBomb");
-  BombMan* bomba = new BombMan(nodeBomb);
+  BombMan* bomba = new BombMan(nodeBomb, sinbad);
   vecManagement.push_back(bomba);
   addInputListener(bomba);
 
   //Knotfly
-  Ogre::SceneNode * nodeKnotFly = scnMgr->getRootSceneNode()->createChildSceneNode("nKnotFly");
+  Ogre::SceneNode * nodeKnotFly = scnMgr->getEntity("entSinbad")->getParentSceneNode()->createChildSceneNode("nKnotFly");
+  nodeKnotFly->setInheritOrientation(false);
   KnotMan* knotFly = new KnotMan(nodeKnotFly);
   vecManagement.push_back(knotFly);
   addInputListener(knotFly);

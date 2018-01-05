@@ -2,9 +2,10 @@
 
 
 
-BombMan::BombMan(SceneNode* sceneNode)
+BombMan::BombMan(SceneNode* sceneNode, SinbadMan * SinBad)
 {
 	sceneNode_ = sceneNode;
+	Sinbad_ = SinBad;
 
 	entity_Bomb = sceneNode->getCreator()->createEntity("entBomb", "uv_sphere.mesh");
 
@@ -14,12 +15,12 @@ BombMan::BombMan(SceneNode* sceneNode)
 
 	entity_Bomb->getSubEntity(0)->setMaterialName("uv_sphere", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);	//meterla en apps
 
-	entity_Bomb->setQueryFlags(-1);
+	entity_Bomb->setQueryFlags(-1); // 1 == selecccionable???
 
 	//Setup de las particulas
 	pSystem = sceneNode_->getCreator()->createParticleSystem("parSys", "Smoke");
 	sceneNode_->attachObject(pSystem);
-	pSystem->setEmitting(false);				//Falso por inercia, cuando lo pulsas debería de ponerse a true -> en el onclick
+	pSystem->setEmitting(true);				//Falso por inercia, cuando lo pulsas debería de ponerse a true -> en el onclick
 
 
 
