@@ -37,10 +37,10 @@
       <Filter>Archivos de código fuente\Management</Filter>
     </ClCompile>
     <ClCompile Include="BombMan.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Management</Filter>
     </ClCompile>
     <ClCompile Include="KnotMan.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Management</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,10 +60,10 @@
       <Filter>Archivos de encabezado\Management</Filter>
     </ClInclude>
     <ClInclude Include="BombMan.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Management</Filter>
     </ClInclude>
     <ClInclude Include="KnotMan.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Management</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 #include "KnotMan.h"
 
-
+using namespace Ogre;
 
 KnotMan::KnotMan(SceneNode* sceneNode)
 {

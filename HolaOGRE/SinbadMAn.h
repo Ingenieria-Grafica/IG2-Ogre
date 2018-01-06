@@ -48,12 +48,12 @@ private:
 	Ogre::AnimationState*  animationState_Bomb;
 
 	///Tracks
-	NodeAnimationTrack * trackWalk;
-	NodeAnimationTrack * trackBomb;
+	Ogre::NodeAnimationTrack * trackWalk;
+	Ogre::NodeAnimationTrack * trackBomb;
 
 	//
-	Vector3 keyframePos;
-	Vector3 scale;
+	Ogre::Vector3 keyframePos;
+	Ogre::Vector3 scale;
 
 };
 #endif
