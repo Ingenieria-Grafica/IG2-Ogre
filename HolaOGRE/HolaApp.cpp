@@ -1,15 +1,14 @@
 #include "HolaApp.h"
-#include "BombMan.h"
-#include "KnotMan.h"
+
 
 using namespace Ogre;
 
 void HolaApp::frameRendered(const FrameEvent &  evt)
 {
-	// for (size_t i = 0; i < vecManagement.size(); i++)
-	// {
-	// 	vecManagement[i]->frameRendered(evt);
-	// }
+	 for (size_t i = 0; i < vecManagement.size(); i++)
+	 {
+	 	vecManagement[i]->frameRendered(evt);
+	 }
 }
 
 bool HolaApp::keyPressed(const OgreBites::KeyboardEvent& evt)
@@ -31,11 +30,14 @@ bool HolaApp::mousePressed(const OgreBites::MouseButtonEvent &  evt)
 	RaySceneQueryResult& qryResult = rayScnQuery->execute();
 	RaySceneQueryResult::iterator it = qryResult.begin();
 
-	// if (it != qryResult.end()) {
+	 if (it != qryResult.end()) {
 	// 
 	// 	seeBoundingBox = !seeBoundingBox;
 	// 	it->movable->getParentSceneNode()->showBoundingBox(seeBoundingBox);
-	// }
+		 UserControl* pCtrl = any_cast<UserControl*>(it->movable ->
+			 getUserObjectBindings().getUserAny());
+		 pCtrl->getEntity()->mousePicking(evt);
+	 }
 
 	return true;
 }

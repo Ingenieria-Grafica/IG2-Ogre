@@ -3,14 +3,15 @@
 
 using namespace Ogre;
 
-SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode)
+SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode), EntityMan(sceneNode)
 {
 	entity_ = sceneNode_->getCreator()->createEntity("entSinbad", "Sinbad.mesh");
 	//node->setPosition(0, 0, 25);
 	sceneNode_->scale(5, 5, 5);
 	//node->showBoundingBox(true);
 	//node->roll(Ogre::Degree(-45));
-	sceneNode_->attachObject(entity_);
+	//sceneNode_->attachObject(entity_);
+	setEntMan(entity_);
 
 
 	///ANIMACION
@@ -42,7 +43,7 @@ SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode)
 	
 
 
-	entity_->setQueryFlags(-1); //????
+	entity_->setQueryFlags(-1); //nani??????????????????????????????????
 
 
 	animCaminadoCuadrado(); //Construimos los keyframes del ciclo de caminado.

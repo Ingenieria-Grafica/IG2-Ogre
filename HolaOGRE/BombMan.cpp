@@ -3,7 +3,7 @@
 using namespace Ogre;
 
 BombMan::BombMan(SceneNode* sceneNode, SinbadMan * sinBad) : 
-sceneNode_(sceneNode), sinbad_(sinBad), estamosActivoooooossssSKEREEEE(false)
+sceneNode_(sceneNode), sinbad_(sinBad), estamosActivoooooossssSKEREEEE(false), EntityMan(sceneNode)
 {
 	sceneNode_->setPosition(0, -10, 0); //Por ejemplo
 	// no funciona
@@ -11,7 +11,8 @@ sceneNode_(sceneNode), sinbad_(sinBad), estamosActivoooooossssSKEREEEE(false)
 
 	entity_Bomb = sceneNode_->getCreator()->createEntity("entBomb", "uv_sphere.mesh");
 	entity_Bomb->getSubEntity(0)->setMaterialName("uv_sphere", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);	//meterla en apps
-	sceneNode_->attachObject(entity_Bomb); //añadir la entidad a la escena
+	//sceneNode_->attachObject(entity_Bomb); //añadir la entidad a la escena
+	setEntMan(entity_Bomb);
 
 	// y el notas lo pone a -1 jajaja si habias puesto el comentario bien no pongas
 	// lo contrario chaval... Este comentario es para que salga el cambio en github
