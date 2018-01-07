@@ -3,11 +3,11 @@
 using namespace Ogre;
 
 BombMan::BombMan(SceneNode* sceneNode, SinbadMan * sinBad) : 
-sceneNode_(sceneNode), sinbad_(sinBad), estamosActivoooooossssSKEREEEE(false), EntityMan(sceneNode)
+sceneNode_(sceneNode), sinbad_(sinBad), EntityMan(sceneNode)
 {
 	sceneNode_->setPosition(0, -10, 0); //Por ejemplo
 	// no funciona
-	sceneNode_->setScale(0.01, 0.01, 0.01);	
+	sceneNode_->setScale(0.05, 0.05, 0.05);
 
 	entity_Bomb = sceneNode_->getCreator()->createEntity("entBomb", "uv_sphere.mesh");
 	entity_Bomb->getSubEntity(0)->setMaterialName("uv_sphere", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);	//meterla en apps
@@ -51,7 +51,7 @@ BombMan::~BombMan()
 void BombMan::particleAnimation(Ogre::NodeAnimationTrack * trackBomb) {
 	TransformKeyFrame * bombKeyFrame;
 	
-	Vector3 scaleBomb(0.1f, 0.1f, 0.1f);
+	Vector3 scaleBomb(0.05, 0.05, 0.05);
 	Vector3 rotationBomb(10, 0, 0);
 	Vector3 kfPosBomb(0, -10, 0);
 	

@@ -5,6 +5,11 @@ using namespace Ogre;
 
 SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode), EntityMan(sceneNode)
 {
+	//Booleanos
+	camina = true;
+	haciaLaBomba = true;
+	muerto = false;
+
 	entity_ = sceneNode_->getCreator()->createEntity("entSinbad", "Sinbad.mesh");
 	//node->setPosition(0, 0, 25);
 	sceneNode_->scale(5, 5, 5);
@@ -40,10 +45,10 @@ SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode), EntityMan(s
 	espada2_ = sceneNode_->getCreator()->createEntity("entEspada2", "Sword.mesh");
 	entity_->attachObjectToBone("Handle.R", espada2_);
 
-	
 
 
-	entity_->setQueryFlags(-1); //nani??????????????????????????????????
+
+	entity_->setQueryFlags(1); //nani??????????????????????????????????
 
 
 	animCaminadoCuadrado(); //Construimos los keyframes del ciclo de caminado.
@@ -116,6 +121,62 @@ void SinbadMan::animCaminadoCuadrado() {
 
 }
 
-/*void SinbadMan::animCaminadoBomba() {
+void SinbadMan::animCaminadoBomba() {
 
-}*/
+
+	haciaLaBomba = true;
+	camina = false;
+
+	animationState_Walk->setEnabled(false);		//Desactivo la de caminado
+	animState_Run->setEnabled(true);			//Activo la de base (REDUNDANTE, LO SÉ)
+	animState_RunTop->setEnabled(false);		//Desactivo los brazos
+	Vector3 vpSinbad(0, 0, 1);
+
+	animation_Bomb = sceneNode_->getCreator()->createAnimation("animGoToBomb", duracion);//Duracion total de la animación
+	trackBomb = animation_Bomb->createNodeTrack(0);
+	trackBomb->setAssociatedNode(sceneNode_);
+
+	entity_->detachObjectFromBone(espada1_);
+	entity_->attachObjectToBone("Handle.L", espada1_);
+
+	TransformKeyFrame * transformKeyFrame_;
+	//CARGAR NODO BOMBA
+	SceneNode * bombEnt = sceneNode_->getCreator()->getEntity("entBomb")->getParentSceneNode();
+	//Tomamos la poisicion del Sinbad en este momento
+	keyframePos = sceneNode_->getPosition();
+	Real initialYPos = sceneNode_->getPosition().y;
+
+	scale = { 5, 5, 5 };
+	Vector3* rot = new Vector3(bombEnt->getPosition().x - sceneNode_->getPosition().x, 0, bombEnt->getPosition().z - sceneNode_->getPosition().z);
+	rot->normalise();
+	Quaternion quat = vpSinbad.getRotationTo(*rot);
+
+	transformKeyFrame_ = trackBomb->createNodeKeyFrame(0);
+	transformKeyFrame_->setTranslate(keyframePos);
+	transformKeyFrame_->setScale(scale);
+	transformKeyFrame_->setRotation(quat);
+
+	transformKeyFrame_ = trackBomb->createNodeKeyFrame(duracion);
+	keyframePos = (bombEnt->getPosition().x, -25, bombEnt->getPosition().z);	//LUGAR DE LA BOMBA
+	transformKeyFrame_->setTranslate(keyframePos);
+	transformKeyFrame_->setScale(scale);
+	transformKeyFrame_->setRotation(quat);
+
+	animationState_Bomb = sceneNode_->getCreator()->createAnimationState("animGoToBomb");
+	animationState_Bomb->setEnabled(true);
+	animationState_Bomb->setLoop(false);
+
+}
+
+void SinbadMan::animMuerte(){
+	camina = false;
+	haciaLaBomba = false;
+	muerto = true;
+
+	animationState_Walk->setEnabled(false);
+	animationState_Bomb->setEnabled(false);
+	
+	sceneNode_->rotate(Vector3(1.0f, 0.0f, 0.0f), Radian(3.14 / 2));
+	sceneNode_->rotate(Vector3(0.0f, 1.0f, 0.0f), Radian(3.14));
+	sceneNode_->translate(Vector3(0.0f, 1.0f, 0.0f));
+}

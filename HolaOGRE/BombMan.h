@@ -18,10 +18,9 @@ public:
 		//Cambiarle el movimiento a Sinbad, desde aqui
 		//Cuando llegue -> ponerle tumbado (Esto se comprueba en Sinbad?)
 		//HAcer que se mueva en una dirección. La mosca creo que se queda por ahí.
-		estamosActivoooooossssSKEREEEE != estamosActivoooooossssSKEREEEE;
 		pSystem->setEmitting(true);
 		bombAnimationState_->setEnabled(false);
-	//	Sinbad_->animCaminadoBomba();
+		sinbad_->animCaminadoBomba();                //Cambia la animacion de caminado por la de ir a la bomba
 		return true; 
 	};
 
@@ -30,8 +29,6 @@ public:
 	};
 
 protected:
-
-	bool estamosActivoooooossssSKEREEEE;
 
 	//Para crear un sistema de particulas a partir de un script
 	Ogre::ParticleSystem * pSystem;		//Herededa de MovableObject. 

@@ -12,20 +12,42 @@ public:
 
 	bool mousePicking(const OgreBites::MouseButtonEvent& event) {
 		//Cambiar entre que se mueva o no.
-		return true; 
+		if (!haciaLaBomba){
+			camina = !camina;
+		}
+
+		//Quitar el enable de la animacion walk y base si queremos que se quede estático (idle)
+
+
+		return true;
 	}
 	void frameRendered(const Ogre::FrameEvent& event){
-		animState_Run->addTime(event.timeSinceLastFrame);
-		animState_RunTop->addTime(event.timeSinceLastFrame);
-		animationState_Walk->addTime(event.timeSinceLastFrame);
+		if (camina){
+			animState_Run->addTime(event.timeSinceLastFrame);
+			animState_RunTop->addTime(event.timeSinceLastFrame);
+			animationState_Walk->addTime(event.timeSinceLastFrame);
+		}
+		else if (haciaLaBomba) {
+			if (!animationState_Bomb->hasEnded()) {
+				animationState_Bomb->addTime(event.timeSinceLastFrame);
+				animState_RunTop->addTime(event.timeSinceLastFrame);
+				animState_Run->addTime(event.timeSinceLastFrame);
+			}
+
+			else animMuerte();
+		}
 	}
 
 	void animCaminadoCuadrado();
-	//void animCaminadoBomba();
+	void animCaminadoBomba();
+	void animMuerte();
 
 private:
 
 	const int duracion = 10;
+	bool camina;
+	bool haciaLaBomba;
+	bool muerto;
 
 	OgreBites::InputListener * list = new OgreBites::InputListener();
 	Ogre::SceneNode* sceneNode_;
@@ -54,6 +76,7 @@ private:
 	//
 	Ogre::Vector3 keyframePos;
 	Ogre::Vector3 scale;
+	//
 
 };
 #endif
