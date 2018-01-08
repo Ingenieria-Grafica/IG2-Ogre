@@ -10,7 +10,7 @@ class EntityMan; //Declaración adelantada
 class UserControl { //Clase recubridora de EntityMan
 public:
 	EntityMan* getEntity() { return Entity_; };
-	friend class EntityMan;		//Supongo que para usar los métodos de EntityMan
+	friend class EntityMan;	// Para usar los métodos de EntityMan
 
 protected:
 	UserControl(EntityMan* ent) : Entity_(ent) {};
@@ -33,12 +33,11 @@ public:
 		//Suponemos que solo puede tener controlador el primer objeto adjunto a un nodo
 		UserControl* pCtrl = Ogre::any_cast<UserControl*>
 			(sceneNode_->getAttachedObject(0)->getUserObjectBindings().getUserAny());
-
 		delete pCtrl;
 	}
 
-	virtual bool mousePicking(const OgreBites::MouseButtonEvent& event) = 0;
-	virtual void frameRendered(const Ogre::FrameEvent& event) = 0;
+	virtual bool mousePicking(const OgreBites::MouseButtonEvent& event){ return true; };
+	virtual void frameRendered(const Ogre::FrameEvent& event) {};
 
 	//Método que comprueba que es el primer objeto que se adjunta al nodo.
 	virtual void setEntMan(Ogre::MovableObject * mObj) {
@@ -54,6 +53,7 @@ public:
 protected:
 	Ogre::SceneNode * sceneNode_ = nullptr;
 	Ogre::RenderTexture* renderTexture_;
-	UserControl* control = nullptr; 
+	UserControl* control = nullptr;
+	OgreBites::InputListener* list_;
 };
 #endif

@@ -1,26 +1,38 @@
-material panel{ 
-	technique{
-		
-		pass{
+material panel{
+	technique //first, preferred technique
+	{
+		pass //first pass
+		{
+			//shading phong
+			//ambient 0.5 0.5 0.5
 			diffuse 0.5 0.5 0.5
-			//ambient 0.1 0.2 0.3
-			//specular 0.8 0.8 0.8 68
-			texture_unit {
-			    texture RustedMetal.jpg
-			    rotate_anim 0.01
-			    colour_op add
+			texture_unit // Texture unit 0
+			{
+				texture RustedMetal.jpg
+				rotate_anim 0.01
+				colour_op add
 			}
 
-			texture_unit
+			texture_unit //Texture unit 1 (this is a multitextura pass)
 			{
-				texture clouds.jpg
-				scroll_anim 0.03 0.0
-				scale 2 2 
+				texture Water01.jpg
+				scroll_anim 0.01 0.0
+				scale 2 2
+				//wave_xform scale_x sine 2.5 0.07 0.0 5.0
 				colour_op modulate
 			}
 		}
+	}
 
-
+	technique //Second technique
+	{
+		pass
+		{
+			texture_unit // Texture unit 0
+			{
+				texture RustedMetal.jpg
+			}
+		}
 	}
 
 }

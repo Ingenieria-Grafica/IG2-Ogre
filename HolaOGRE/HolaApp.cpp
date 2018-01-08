@@ -13,12 +13,18 @@ void HolaApp::frameRendered(const FrameEvent &  evt)
 
 bool HolaApp::keyPressed(const OgreBites::KeyboardEvent& evt)
 {
-  if (evt.keysym.sym == SDLK_ESCAPE)
-  {
-    mRoot->queueEndRendering();
-  }
- 
-  return true;
+	if (evt.keysym.sym == SDLK_ESCAPE)
+		mRoot->queueEndRendering();
+	else if (evt.keysym.sym == SDLK_t){
+		input = !input;
+		if (input)
+			camMan->setTarget(nodeSinbad);
+		else
+			camMan->setTarget(scnMgr->getRootSceneNode());
+	}
+
+
+	return true;
 }
 
 bool HolaApp::mousePressed(const OgreBites::MouseButtonEvent &  evt)
@@ -94,7 +100,7 @@ void HolaApp::setupScene(void)
   Light* light = scnMgr->createLight("Light");
   light->setDirection(Ogre::Vector3::NEGATIVE_UNIT_Y); // !!! opngl <-> dirección a la fuente de luz
   lightNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-  lightNode->setPosition(0, 0, 100);
+  lightNode->setPosition(0, 100, 50);
   lightNode->attachObject(light);
 
   // also need to tell where we are
@@ -122,26 +128,26 @@ void HolaApp::setupScene(void)
 
   //**************************************************************//
   // Sinbad
-  Ogre::SceneNode * nodeSinbad = scnMgr->getRootSceneNode()->createChildSceneNode("nSinbad");
+  nodeSinbad = scnMgr->getRootSceneNode()->createChildSceneNode("nSinbad");
   SinbadMan* sinbad = new SinbadMan(nodeSinbad);
   vecManagement.push_back(sinbad);
-  addInputListener(sinbad);
+  // addInputListener(sinbad);
 
   //Bomba
   // ParticleSystem * pSys = scnMgr->createParticleSystem("partSys", "smoke"); // (nombre,nombre script)
   Ogre::SceneNode * nodeBomb = scnMgr->getRootSceneNode()->createChildSceneNode("nBomb");
   BombMan* bomba = new BombMan(nodeBomb, sinbad);
   vecManagement.push_back(bomba);
-  addInputListener(bomba);
+  // addInputListener(bomba);
 
   //Knotfly
   Ogre::SceneNode * nodeKnotFly = scnMgr->getEntity("entSinbad")->getParentSceneNode()->createChildSceneNode("nKnotFly");
   nodeKnotFly->setInheritOrientation(false);
   KnotMan* knotFly = new KnotMan(nodeKnotFly);
   vecManagement.push_back(knotFly);
-  addInputListener(knotFly);
+  // addInputListener(knotFly);
 
-
+  camMan->setTarget(nodeSinbad);
   // Plano
   TexturePtr rttTex = TextureManager::getSingleton().createManual(
 	  "texRtt",
@@ -158,8 +164,8 @@ void HolaApp::setupScene(void)
 	  (Real)mWindow->getViewport(0)->getActualWidth(),
 	  (Real)cam->getViewport()->getActualHeight(),
 	  10, 10, true, 1, 1.0, 1.0, Vector3::UNIT_Y);
-  PanelMan* panel = new PanelMan(nodePlane, rttTex);
-  // vecManagement.push_back(panel);
+  PanelMan* panel = new PanelMan(nodePlane, rttTex, camNode);
+  vecManagement.push_back(panel);
 
 
   // SceneQueries

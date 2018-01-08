@@ -2,13 +2,13 @@
 
 using namespace Ogre;
 
-PanelMan::PanelMan(SceneNode* sceneNode, TexturePtr texturePtr) :
-sceneNode_(sceneNode), texturePtr_(texturePtr)
+PanelMan::PanelMan(SceneNode* sceneNode, TexturePtr texturePtr, SceneNode * CamNode) : EntityMan(sceneNode),
+camNode_(CamNode), texturePtr_(texturePtr)
 {
-	
+	sceneNode_ = sceneNode;
 	sceneNode_->scale(0.3, 0.3, 0.3);
 	sceneNode_->pitch(Ogre::Degree(-90));
-	sceneNode_->setPosition(0, -25, -50);
+	// sceneNode_->setPosition(0, -25, -50);
 
 	cameraRef_ = sceneNode_->getCreator()->createCamera("RefCam");
 
@@ -23,9 +23,9 @@ sceneNode_(sceneNode), texturePtr_(texturePtr)
 	entity_ = sceneNode_->getCreator()->createEntity("entFondo", "mFondo");
 	
 	// material del plano
-	// MyApplicationContext::addInputListener(list_);
+	MyApplicationContext::addInputListener(list_);
 	entity_->getSubEntity(0)->setMaterialName("panel", ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-	sceneNode_->attachObject(entity_);
+	setEntMan(entity_);
 	
 	RenderTexture* renderTexture = texturePtr_->getBuffer()->getRenderTarget();
 	Viewport * v = renderTexture->addViewport(cameraRef_);

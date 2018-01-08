@@ -3,20 +3,22 @@
 
 using namespace Ogre;
 
-SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode), EntityMan(sceneNode)
+SinbadMan::SinbadMan(SceneNode * sceneNode) : EntityMan(sceneNode)
 {
+	sceneNode_ = sceneNode;
 	//Booleanos
 	camina = true;
 	haciaLaBomba = true;
 	muerto = false;
 
 	entity_ = sceneNode_->getCreator()->createEntity("entSinbad", "Sinbad.mesh");
-	//node->setPosition(0, 0, 25);
+	setEntMan(entity_);
+	sceneNode_->setPosition(0, 25, 50);
 	sceneNode_->scale(5, 5, 5);
 	//node->showBoundingBox(true);
 	//node->roll(Ogre::Degree(-45));
 	//sceneNode_->attachObject(entity_);
-	setEntMan(entity_);
+	
 
 
 	///ANIMACION
@@ -45,10 +47,7 @@ SinbadMan::SinbadMan(SceneNode * sceneNode) : sceneNode_(sceneNode), EntityMan(s
 	espada2_ = sceneNode_->getCreator()->createEntity("entEspada2", "Sword.mesh");
 	entity_->attachObjectToBone("Handle.R", espada2_);
 
-
-
-
-	entity_->setQueryFlags(1); //nani??????????????????????????????????
+	entity_->setQueryFlags(1); 
 
 
 	animCaminadoCuadrado(); //Construimos los keyframes del ciclo de caminado.
@@ -189,7 +188,7 @@ void SinbadMan::animMuerte(){
 	TransformKeyFrame * transformKeyFrame_;
 	//Tomamos la posicion del Sinbad en este momento
 	keyframePos = sceneNode_->getPosition();
-	keyframePos -= Vector3::UNIT_Y * 20; 
+	keyframePos -= Vector3::UNIT_Y * 25; 
 
 	scale = { 5, 5, 5 };
 	Vector3* rot = new Vector3(0, 180, 0);

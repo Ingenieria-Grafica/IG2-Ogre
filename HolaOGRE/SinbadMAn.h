@@ -14,11 +14,11 @@ public:
 		//Cambiar entre que se mueva o no.
 		if (!haciaLaBomba){
 			camina = !camina;
+			animationState_Walk->setEnabled(camina);
+			animState_RunTop->setEnabled(camina);
+
 		}
-
 		//Quitar el enable de la animacion walk y base si queremos que se quede estático (idle)
-
-
 		return true;
 	}
 	void frameRendered(const Ogre::FrameEvent& event){
@@ -53,7 +53,7 @@ private:
 	bool muerto;
 
 	OgreBites::InputListener * list = new OgreBites::InputListener();
-	Ogre::SceneNode* sceneNode_;
+	// Ogre::SceneNode* sceneNode_;
 
 	//Entidades
 	Ogre::Entity* entity_;

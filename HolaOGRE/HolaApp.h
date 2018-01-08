@@ -29,13 +29,16 @@ protected:
 
   Ogre::SceneManager* scnMgr = nullptr;
   OgreBites::TrayManager* trayMgr = nullptr;
+
   Ogre::SceneNode* lightNode = nullptr;
   Ogre::SceneNode* camNode = nullptr;
+  Ogre::SceneNode * nodeSinbad = nullptr;
+  
   OgreBites::CameraMan* camMan = nullptr;
   Ogre::RaySceneQuery * rayScnQuery = nullptr;
   Ogre::Camera * cam = nullptr;
   
-  bool seeBoundingBox = false;
+  bool input = false;
  
   static const Ogre::uint32 MY_QUERY_MASK = 1; // << 0;
   static const Ogre::uint32 ZERO_QUERY_MASK = 0;
