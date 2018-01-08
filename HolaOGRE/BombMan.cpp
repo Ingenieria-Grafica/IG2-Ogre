@@ -5,7 +5,7 @@ using namespace Ogre;
 BombMan::BombMan(SceneNode* sceneNode, SinbadMan * sinBad) : 
 sceneNode_(sceneNode), sinbad_(sinBad), EntityMan(sceneNode)
 {
-	sceneNode_->setPosition(0, -10, 0); //Por ejemplo
+	sceneNode_->setPosition(0, 40, 0); //Por ejemplo
 	// no funciona
 	sceneNode_->setScale(0.05, 0.05, 0.05);
 
@@ -14,16 +14,14 @@ sceneNode_(sceneNode), sinbad_(sinBad), EntityMan(sceneNode)
 	//sceneNode_->attachObject(entity_Bomb); //añadir la entidad a la escena
 	setEntMan(entity_Bomb);
 
-	// y el notas lo pone a -1 jajaja si habias puesto el comentario bien no pongas
-	// lo contrario chaval... Este comentario es para que salga el cambio en github
-	entity_Bomb->setQueryFlags(1); // 1 == selecccionable???
+
+	entity_Bomb->setQueryFlags(1); // 1 == selecccionable 
 
 	//Setup de las particulas
 	pSystem = sceneNode_->getCreator()->createParticleSystem("parSys", "Smoke");
 	
 	sceneNode_->attachObject(pSystem);
-	// el comentario lo pones bien pero la instruccion no JAJAJAJAJAJAJA, 
-	// no puedo parar de reirme corrigiendo el codigo xDDDD
+
 	pSystem->setEmitting(false);				//Falso por inercia, cuando lo pulsas debería de ponerse a true -> en el onclick
 
 

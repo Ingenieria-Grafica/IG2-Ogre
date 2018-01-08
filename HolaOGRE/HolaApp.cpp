@@ -147,7 +147,7 @@ void HolaApp::setupScene(void)
   vecManagement.push_back(knotFly);
   // addInputListener(knotFly);
 
-  camMan->setTarget(nodeSinbad);
+  camMan->setTarget(nodeSinbad); //Para que siga a Sinbad.
   // Plano
   TexturePtr rttTex = TextureManager::getSingleton().createManual(
 	  "texRtt",

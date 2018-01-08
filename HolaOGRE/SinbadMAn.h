@@ -12,7 +12,7 @@ public:
 
 	bool mousePicking(const OgreBites::MouseButtonEvent& event) {
 		//Cambiar entre que se mueva o no.
-		if (!haciaLaBomba){
+		if (!haciaLaBomba && !muerto){
 			camina = !camina;
 			animationState_Walk->setEnabled(camina);
 			animState_RunTop->setEnabled(camina);

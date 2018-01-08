@@ -6,15 +6,18 @@ using namespace Ogre;
 SinbadMan::SinbadMan(SceneNode * sceneNode) : EntityMan(sceneNode)
 {
 	sceneNode_ = sceneNode;
+	//sceneNode_->setPosition(100, -400, 500);
+	sceneNode_->translate(0, -25, 0);
+	sceneNode_->scale(5, 5, 5);
+
 	//Booleanos
 	camina = true;
-	haciaLaBomba = true;
+	haciaLaBomba = false;
 	muerto = false;
 
 	entity_ = sceneNode_->getCreator()->createEntity("entSinbad", "Sinbad.mesh");
 	setEntMan(entity_);
-	sceneNode_->setPosition(0, 25, 50);
-	sceneNode_->scale(5, 5, 5);
+	
 	//node->showBoundingBox(true);
 	//node->roll(Ogre::Degree(-45));
 	//sceneNode_->attachObject(entity_);

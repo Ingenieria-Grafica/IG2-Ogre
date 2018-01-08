@@ -8,7 +8,7 @@ camNode_(CamNode), texturePtr_(texturePtr)
 	sceneNode_ = sceneNode;
 	sceneNode_->scale(0.3, 0.3, 0.3);
 	sceneNode_->pitch(Ogre::Degree(-90));
-	// sceneNode_->setPosition(0, -25, -50);
+
 
 	cameraRef_ = sceneNode_->getCreator()->createCamera("RefCam");
 
@@ -19,7 +19,8 @@ camNode_(CamNode), texturePtr_(texturePtr)
 	cameraRef_->setFarClipDistance(10000);
 	cameraRef_->setAutoAspectRatio(true);
 
-	sceneNode_->attachObject(cameraRef_);
+	camNode_->attachObject(cameraRef_);
+
 	entity_ = sceneNode_->getCreator()->createEntity("entFondo", "mFondo");
 	
 	// material del plano
