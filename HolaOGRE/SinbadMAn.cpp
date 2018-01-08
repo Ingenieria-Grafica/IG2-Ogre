@@ -176,7 +176,38 @@ void SinbadMan::animMuerte(){
 	animationState_Walk->setEnabled(false);
 	animationState_Bomb->setEnabled(false);
 	
-	sceneNode_->rotate(Vector3(1.0f, 0.0f, 0.0f), Radian(3.14 / 2));
-	sceneNode_->rotate(Vector3(0.0f, 1.0f, 0.0f), Radian(3.14));
-	sceneNode_->translate(Vector3(0.0f, 1.0f, 0.0f));
+	Vector3 vpSinbad(0, 0, 1);
+	Real displacement = 100;
+
+	animation_Die = sceneNode_->getCreator()->createAnimation("animDragSinbad", duracion*2);//Duracion total de la animación
+	trackDie = animation_Die->createNodeTrack(0);
+	trackDie->setAssociatedNode(sceneNode_);
+
+	entity_->detachObjectFromBone(espada1_);
+	entity_->attachObjectToBone("Handle.L", espada1_);
+
+	TransformKeyFrame * transformKeyFrame_;
+	//Tomamos la posicion del Sinbad en este momento
+	keyframePos = sceneNode_->getPosition();
+	keyframePos -= Vector3::UNIT_Y * 20; 
+
+	scale = { 5, 5, 5 };
+	Vector3* rot = new Vector3(0, 180, 0);
+	rot->normalise();
+	Quaternion quat = vpSinbad.getRotationTo(*rot);
+
+	transformKeyFrame_ = trackDie->createNodeKeyFrame(0);
+	transformKeyFrame_->setTranslate(keyframePos);
+	transformKeyFrame_->setScale(scale);
+	transformKeyFrame_->setRotation(quat);
+
+	transformKeyFrame_ = trackDie->createNodeKeyFrame(duracion * 2);
+	keyframePos += Vector3::UNIT_X * displacement;
+	transformKeyFrame_->setTranslate(keyframePos);
+	transformKeyFrame_->setScale(scale);
+	transformKeyFrame_->setRotation(quat);
+
+	animationState_Die = sceneNode_->getCreator()->createAnimationState("animDragSinbad");
+	animationState_Die->setEnabled(true);
+	animationState_Die->setLoop(false);
 }

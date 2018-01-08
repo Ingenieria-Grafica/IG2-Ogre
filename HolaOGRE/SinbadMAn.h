@@ -36,6 +36,9 @@ public:
 
 			else animMuerte();
 		}
+		else if (muerto) {
+			animationState_Die->addTime(event.timeSinceLastFrame);
+		}
 	}
 
 	void animCaminadoCuadrado();
@@ -62,16 +65,18 @@ private:
 	//Animaciones
 	Ogre::Animation* animation_Walk;
 	Ogre::Animation* animation_Bomb;
+	Ogre::Animation* animation_Die;
 
 	///Anim States
 	Ogre::AnimationState*  animState_Run;
 	Ogre::AnimationState*  animState_RunTop;		//Ahora tambien mueve los brazos.
 	Ogre::AnimationState*  animationState_Walk;
 	Ogre::AnimationState*  animationState_Bomb;
-
+	Ogre::AnimationState*  animationState_Die;
 	///Tracks
 	Ogre::NodeAnimationTrack * trackWalk;
 	Ogre::NodeAnimationTrack * trackBomb;
+	Ogre::NodeAnimationTrack * trackDie;
 
 	//
 	Ogre::Vector3 keyframePos;

@@ -1,4 +1,4 @@
-﻿Compilación iniciada a las 07/01/2018 20:14:26.
+﻿Compilación iniciada a las 08/01/2018 22:16:48.
      1>Proyecto "D:\hlocal\3 GDV\1 CUATRIMESTRE\IG II\Practica  2\IG2-Ogre\HolaOGRE\HolaOGRE.vcxproj" en el nodo 2 (Build destinos).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SinbadMAn.cpp
@@ -608,8 +608,8 @@
      1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(118): warning C4244: 'argumento' : conversión de 'int' a 'const Ogre::Real'; posible pérdida de datos
      1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(135): warning C4244: 'argumento' : conversión de 'const int' a 'Ogre::Real'; posible pérdida de datos
      1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(159): warning C4244: 'argumento' : conversión de 'const int' a 'Ogre::Real'; posible pérdida de datos
-     1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(179): warning C4305: 'argumento' : truncamiento de 'double' a 'Ogre::Real'
-     1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(180): warning C4305: 'argumento' : truncamiento de 'double' a 'Ogre::Real'
+     1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(182): warning C4244: 'argumento' : conversión de 'int' a 'Ogre::Real'; posible pérdida de datos
+     1>d:\hlocal\3 gdv\1 cuatrimestre\ig ii\practica  2\ig2-ogre\holaogre\sinbadman.cpp(204): warning C4244: 'argumento' : conversión de 'int' a 'Ogre::Real'; posible pérdida de datos
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\hlocal\3 GDV\1 CUATRIMESTRE\IG II\Practica  2\IG2-Ogre\bin\HolaOGREDebug.exe" /INCREMENTAL /NOLOGO OgreMain_d.lib OgreBites_d.lib OgreRTShaderSystem_d.lib OgreOverlay_d.lib SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\hlocal\3 GDV\1 CUATRIMESTRE\IG II\Practica  2\IG2-Ogre\bin\HolaOGREDebug.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\hlocal\3 GDV\1 CUATRIMESTRE\IG II\Practica  2\IG2-Ogre\bin\HolaOGREDebug.lib" /MACHINE:X86 Debug\BombMan.obj
          Debug\HolaApp.obj
@@ -623,4 +623,4 @@
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:06.46
+Tiempo transcurrido 00:00:04.89
