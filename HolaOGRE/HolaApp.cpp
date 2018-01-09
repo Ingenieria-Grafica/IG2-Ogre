@@ -100,7 +100,7 @@ void HolaApp::setupScene(void)
   Light* light = scnMgr->createLight("Light");
   light->setDirection(Ogre::Vector3::NEGATIVE_UNIT_Y); // !!! opngl <-> dirección a la fuente de luz
   lightNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-  lightNode->setPosition(0, 100, 50);
+  lightNode->setPosition(0, 100, 100);
   lightNode->attachObject(light);
 
   // also need to tell where we are

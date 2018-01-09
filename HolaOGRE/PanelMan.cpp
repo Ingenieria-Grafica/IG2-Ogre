@@ -7,6 +7,7 @@ camNode_(CamNode), texturePtr_(texturePtr)
 {
 	sceneNode_ = sceneNode;
 	sceneNode_->scale(0.3, 0.3, 0.3);
+	//sceneNode_->setPosition(0, -25, -50);
 	sceneNode_->pitch(Ogre::Degree(-90));
 
 

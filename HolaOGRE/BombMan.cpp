@@ -51,7 +51,7 @@ void BombMan::particleAnimation(Ogre::NodeAnimationTrack * trackBomb) {
 	
 	Vector3 scaleBomb(0.05, 0.05, 0.05);
 	Vector3 rotationBomb(10, 0, 0);
-	Vector3 kfPosBomb(0, -10, 0);
+	Vector3 kfPosBomb(0, 10, 0);
 	
 	//Keyframe 0: Origen.
 	bombKeyFrame = trackBomb->createNodeKeyFrame(longitudPasoBomb * 0);

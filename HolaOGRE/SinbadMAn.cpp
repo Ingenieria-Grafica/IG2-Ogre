@@ -6,9 +6,10 @@ using namespace Ogre;
 SinbadMan::SinbadMan(SceneNode * sceneNode) : EntityMan(sceneNode)
 {
 	sceneNode_ = sceneNode;
-	//sceneNode_->setPosition(100, -400, 500);
-	sceneNode_->translate(0, -25, 0);
+	sceneNode_->setPosition(-50, 25, 50);
 	sceneNode_->scale(5, 5, 5);
+
+	keyframePos = sceneNode_->getPosition(), scale = (5, 5, 5);
 
 	//Booleanos
 	camina = true;
@@ -68,7 +69,6 @@ SinbadMan::~SinbadMan()
 }
 
 void SinbadMan::animCaminadoCuadrado() {
-	Vector3 keyframePos(-50, 0, 50), scale(5, 5, 5);
 
 	int movimiento = 80;
 
