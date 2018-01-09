@@ -125,7 +125,6 @@ void SinbadMan::animCaminadoCuadrado() {
 
 void SinbadMan::animCaminadoBomba() {
 
-
 	haciaLaBomba = true;
 	camina = false;
 
@@ -149,9 +148,10 @@ void SinbadMan::animCaminadoBomba() {
 	Real initialYPos = sceneNode_->getPosition().y;
 
 	scale = { 5, 5, 5 };
-	Vector3* rot = new Vector3(bombEnt->getPosition().x - sceneNode_->getPosition().x, 0, bombEnt->getPosition().z - sceneNode_->getPosition().z);
-	rot->normalise();
-	Quaternion quat = vpSinbad.getRotationTo(*rot);
+	Vector3 rot = Vector3(bombEnt->getPosition().x - sceneNode_->getPosition().x, 0, bombEnt->getPosition().z - sceneNode_->getPosition().z);
+	rot.normalise();
+	Quaternion quat = vpSinbad.getRotationTo(rot);
+	quat.normalise();
 
 	transformKeyFrame_ = trackBomb->createNodeKeyFrame(0);
 	transformKeyFrame_->setTranslate(keyframePos);
@@ -159,7 +159,7 @@ void SinbadMan::animCaminadoBomba() {
 	transformKeyFrame_->setRotation(quat);
 
 	transformKeyFrame_ = trackBomb->createNodeKeyFrame(duracion);
-	keyframePos = (bombEnt->getPosition().x, -25, bombEnt->getPosition().z);	//LUGAR DE LA BOMBA
+	keyframePos = Vector3(bombEnt->getPosition().x, 25, bombEnt->getPosition().z);	//LUGAR DE LA BOMBA
 	transformKeyFrame_->setTranslate(keyframePos);
 	transformKeyFrame_->setScale(scale);
 	transformKeyFrame_->setRotation(quat);
@@ -191,7 +191,7 @@ void SinbadMan::animMuerte(){
 	TransformKeyFrame * transformKeyFrame_;
 	//Tomamos la posicion del Sinbad en este momento
 	keyframePos = sceneNode_->getPosition();
-	keyframePos -= Vector3::UNIT_Y * 25; 
+	keyframePos -= Vector3::UNIT_Y * 2; 
 
 	scale = { 5, 5, 5 };
 	Vector3* rot = new Vector3(0, 180, 0);
