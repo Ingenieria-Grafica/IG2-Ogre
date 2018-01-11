@@ -1,15 +1,21 @@
 #version 330 core
 
+// Atributos de entrada (per vertex -> mesh): 
+in vec4 vertex; // atributos de los vertices a procesar
+		// coordenadas de la posicion
 
-in vec4 vertex; //atributos de los vertices a procesar
+in vec2 uv0; 	// coordenadas de la textura 0
 
-in vec2 uv0; 
-uniform mat4 modelViewProjMat; //Constantes del programa
-out vec2 vUv0; //out del vertex chader
+// Transformaciones: uniform (constantes del programa)
+uniform mat4 modelViewProjMat; 
 
-void main()
+// Atributos de salida (transformados): out
+out vec2 vUv0;  // out del vertex shader
+		// Coordenadas de la textura 0
+
+void main() {
 vUv0 = uv0;
 
-//¿Gl_Position está ya definido?
+// Predefinida obligatoria
 gl_Position = modelViewProjMat * vertex; //Obligatorio
 }

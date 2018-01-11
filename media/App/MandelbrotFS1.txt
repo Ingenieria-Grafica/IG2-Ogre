@@ -1,0 +1,29 @@
+#version 330 core // compatibility
+
+in vec2 vUv0; // out of vertex shader
+uniform vec4 InColor;
+uniform vec4 OutColor1;
+uniform vec4 OutColor2;
+const int MaxIter = 500;
+out vec4 fFragColor;
+
+void main() {
+	float Creal = vUv0.s - 1.5; // traslación
+	float Cimag = vUv0.t; 
+	float real = Creal;
+	float imag = Cimag;
+	float r2 = 0.0;
+	int iter = 0;
+	float tempreal = 0.0;
+	while (iter < MaxIter && r2 < 4.0) {
+		tempreal = real;
+		real = (tempreal * tempreal) - (imag * imag) + Creal;
+		imag = 2.0 * tempreal * imag + Cimag;
+		r2 = (real * real) + (imag * imag);
+		iter = iter + 1;
+	}
+	vec4 color = InColor;   // in Mandelbrot set
+	if (r2 > 4.0)
+	color = mix(OutColor1, OutColor2, fract(float(iter)* 0.05));
+	fFragColor = color;
+}
