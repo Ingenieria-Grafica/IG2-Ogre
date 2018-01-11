@@ -1,0 +1,18 @@
+#version 330 core
+uniform sampler2D textura1;
+uniform sampler2D textura2;
+uniform float FB;
+uniform float int Luz;
+
+in vec2 vUv0; //out delvertex shader
+
+out vec4 fFragColor; //out del fragment shader
+
+void main()
+{
+vec3 color1 =vec3(texture2D (textura1, vUv0))*intLuz;
+vec3 color2 = vec3( texture2D (textura2, vUv0));
+vec3 color = mix(color1, color2, FB);   //(1-FB).C1+FB.C2
+
+fFragColor = vec4 (color, 1.0);
+}

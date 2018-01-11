@@ -1,0 +1,15 @@
+#version 330 core
+
+
+in vec4 vertex; //atributos de los vertices a procesar
+
+in vec2 uv0; 
+uniform mat4 modelViewProjMat; //Constantes del programa
+out vec2 vUv0; //out del vertex chader
+
+void main()
+vUv0 = uv0;
+
+//¿Gl_Position está ya definido?
+gl_Position = modelViewProjMat * vertex; //Obligatorio
+}

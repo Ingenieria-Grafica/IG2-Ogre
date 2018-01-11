@@ -148,7 +148,8 @@ void HolaApp::setupScene(void)
   // addInputListener(knotFly);
 
   camMan->setTarget(nodeSinbad); //Para que siga a Sinbad.
-  // Plano
+
+  // Planos //
   TexturePtr rttTex = TextureManager::getSingleton().createManual(
 	  "texRtt",
 	  ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
@@ -167,6 +168,9 @@ void HolaApp::setupScene(void)
   PanelMan* panel = new PanelMan(nodePlane, rttTex, camNode);
   vecManagement.push_back(panel);
 
+  scnMgr->setSkyPlane(true, Plane(Vector3::UNIT_Z, -20),
+	"Ejemplo2", 1, 1,true,0.0, 100, 100);
+  //
 
   // SceneQueries
   rayScnQuery->setQueryTypeMask(SceneManager::ENTITY_TYPE_MASK);

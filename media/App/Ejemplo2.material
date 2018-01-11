@@ -1,0 +1,32 @@
+material Ejemplo2
+{ //nombre
+	technique{
+		
+		pass{
+			vertex_program_ref vertexShaderE2{
+			//Params
+			}
+			fragment_program_ref vertexShaderE2{
+			//Params
+			}
+
+			texture_unit {
+			    texture BumpyMetal.jpg 2d //que pollas es el 2d
+			    tex_address_mode clamp
+			    filtering bilinear
+			}
+
+			texture_unit {
+			    texture BumpyMetal.jpg 2d //que pollas es el 2d
+			    tex_address_mode wrap
+			}
+
+			//diffuse 0.5 0.5 0.5
+			//ambient 0.1 0.2 0.3
+			//specular 0.8 0.8 0.8 68
+			
+			
+		}
+	}
+
+}
