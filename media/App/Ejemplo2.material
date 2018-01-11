@@ -1,4 +1,4 @@
-vertex_program vertexShaderE2 glsl 
+vertex_program vertexShaderE2  
 {
 	source vertexShaderE2glsl.txt; // archivo
 
@@ -8,7 +8,7 @@ vertex_program vertexShaderE2 glsl
 	}
 }
 
-fragment_program fragmentShaderE2 glsl 
+fragment_program fragmentShaderE2  
 {
 	source fragmentShaderE2glsl.txt; // archivo
 	default_params //valores de las variables uniform
