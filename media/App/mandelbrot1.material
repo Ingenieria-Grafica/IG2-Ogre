@@ -1,4 +1,4 @@
-vertex_program MandelbrotVS1 
+vertex_program MandelbrotVS1 glsl
 {
 	source MandelbrotVS1.txt // archivo
 	default_params // valores para las variables uniform
@@ -7,7 +7,7 @@ vertex_program MandelbrotVS1
 	}
 }
 
-fragment_program MandelbrotFS1
+fragment_program MandelbrotFS1 glsl
 {
 	source MandelbrotFS1.txt	// archivo
 	default_params // valores para la variable uniform

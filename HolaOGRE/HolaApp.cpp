@@ -170,7 +170,7 @@ void HolaApp::setupScene(void)
 
   // nMgr->setSkyPlane(true, Plane(Vector3::UNIT_Z, -20),
 	// "Ejemplo2", 1, 1, true, 4.0, 100, 100);
-  scnMgr->setSkyPlane(true, Plane(Vector3::UNIT_Z, -20),
+  scnMgr->setSkyPlane(true, Plane(Vector3::UNIT_Z, -100),
   "mandelbrot1", 1, 1, true, 0.0, 100, 100);
 
   // SceneQueries
