@@ -1,13 +1,16 @@
 #version 330 core //Compatibilidad
 
 in vec2 vUv0; // out of vertex shader
+
 uniform vec4 InColor;
 uniform vec4 OutColor1;
 uniform vec4 OutColor2;
+
 const int MaxIter = 500;
 out vec4 fFragColor;
 
 void main(){
+	
 
 	float Creal = vUv0.s - 1.5; // traslación
 	float Cimag = vUv0.t; 
@@ -23,8 +26,10 @@ void main(){
 		r2 = (real* real) + (imag*imag);
 		iter = iter + 1;
 	}
+
 	vec4 color = InColor;
 	if(r2 > 4.0)
 		color = mix(OutColor1, OutColor2 , fract(float(iter)*0.04));
+	
 	fFragColor = color;
 }

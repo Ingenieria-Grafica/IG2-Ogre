@@ -12,9 +12,11 @@ fragment_program MandelbrotFS1 glsl
 	source MandelbrotFS1.txt	// archivo
 	default_params // valores para la variable uniform
 	{
+		
 		param_named InColor float4 0.5 0.5 1.0 1.0
 		param_named OutColor1 float4 0.5 0.25 1.0 1.0
 		param_named OutColor2 float4 1.0 0.5 0.25 1.0
+	
 	}
 }
 
