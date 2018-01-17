@@ -15,7 +15,7 @@ fragment_program fragmentShaderE2
 	{
 		param_named textura1 int 0 //unidad de textura
 		param_named textura2 int 1
-		param_named FB float 0.5
+		param_named_auto FB time_0_1 10
 		param_named intLuz float 1.0;
 	}
 }
@@ -33,13 +33,13 @@ material Ejemplo2
 			}
 
 			texture_unit {
-			    texture BumpyMetal.jpg 2d //que pollas es el 2d
+			    texture BumpyMetal.jpg 2d 
 			    tex_address_mode clamp
 			    filtering bilinear
 			}
 
 			texture_unit {
-			    texture BumpyMetal.jpg 2d //que pollas es el 2d
+			    texture BumpyMetal.jpg 2d 
 			    tex_address_mode wrap
 			}
 

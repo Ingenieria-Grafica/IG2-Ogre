@@ -25,7 +25,7 @@ material mandelbrot1
 		pass
 		{
 			depth_write off
-			vertex_program_ref MandelbrotFS1
+			vertex_program_ref MandelbrotVS1
 			{ // params
 			}
 

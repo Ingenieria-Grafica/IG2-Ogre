@@ -191,7 +191,7 @@ void SinbadMan::animMuerte(){
 	TransformKeyFrame * transformKeyFrame_;
 	//Tomamos la posicion del Sinbad en este momento
 	keyframePos = sceneNode_->getPosition();
-	keyframePos -= Vector3::UNIT_Y * 2; 
+	keyframePos -= Vector3::UNIT_Y * 1; 
 
 	scale = { 5, 5, 5 };
 	Vector3* rot = new Vector3(0, 180, 0);
