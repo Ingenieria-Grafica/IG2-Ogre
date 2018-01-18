@@ -48,5 +48,7 @@ camNode_(CamNode), texturePtr_(texturePtr)
 
 PanelMan::~PanelMan()
 {
-	// MyApplicationContext::removeInputListener(list_);
+	delete camNode_;
+	delete entity_;
+	delete cameraRef_; // Para el reflejo
 }

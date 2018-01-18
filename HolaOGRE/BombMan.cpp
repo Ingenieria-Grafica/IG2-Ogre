@@ -40,10 +40,15 @@ sceneNode_(sceneNode), sinbad_(sinBad), EntityMan(sceneNode)
 
 BombMan::~BombMan()
 {
+	delete bombAnimationState_;
+	delete bombAnimation_;
+	delete list_;
+	delete pSystem;
+	delete sinbad_;
+	delete sceneNode_;
+	delete entity_Bomb;
 }
 
-// FVCK THIS SHIT, no puedes poner la animacion en la constructora LMAO xD
-// Tiene que ir en un metodo para llamarlo en cada frame que se necesite jajaja
 // KEYFRAMES //
 // 5 keyFrames: origen(0), arriba, origen, abajo, origen(4)
 void BombMan::particleAnimation(Ogre::NodeAnimationTrack * trackBomb) {
