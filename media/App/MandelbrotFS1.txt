@@ -5,14 +5,16 @@ in vec2 vUv0; // out of vertex shader
 uniform vec4 InColor;
 uniform vec4 OutColor1;
 uniform vec4 OutColor2;
+uniform float FB;
 
 const int MaxIter = 500;
 out vec4 fFragColor;
 
+
 void main(){
 	
 
-	float Creal = vUv0.s - 1.5; // traslación
+	float Creal = vUv0.s - 1.5; // traslación (Se cambia para la animacion)
 	float Cimag = vUv0.t; 
 	float real = Creal;
 	float imag = Cimag;
@@ -25,11 +27,13 @@ void main(){
 		imag = 2.0 * tempreal * imag + Cimag;
 		r2 = (real* real) + (imag*imag);
 		iter = iter + 1;
+		
 	}
 
 	vec4 color = InColor;
 	if(r2 > 4.0)
-		color = mix(OutColor1, OutColor2 , fract(float(iter)*0.04));
+		color = mix(OutColor1, OutColor2 , fract(float(iter)* FB));
+		//Mezclar una textura con el algoritmo (textrura procedimental)
 	
 	fFragColor = color;
 }

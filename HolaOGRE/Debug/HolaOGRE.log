@@ -1,8 +1,8 @@
-﻿Build started 17/01/2018 12:27:12.
+﻿Build started 18/01/2018 9:13:26.
      1>Project "C:\hlocal\IG\IG2-Ogre\HolaOGRE\HolaOGRE.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SinbadMAn.cpp
-         SinbadMAn.cpp
+         C:\software\programacion\MSVStudio2013\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt HolaApp.cpp
+         HolaApp.cpp
      1>c:\hlocal\ig\ig2-ogre\holaogre\myapplicationcontext.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
      1>c:\hlocal\ig\ig2-ogre\ogresdk\include\ogre\rtshadersystem\ogreshaderprogrammanager.h(212): warning C4251: 'Ogre::RTShader::ProgramManager::mCpuProgramsList' : class 'std::set<T,P,std::allocator<_Kty>>' needs to have dll-interface to be used by clients of class 'Ogre::RTShader::ProgramManager'
                  with
@@ -599,18 +599,10 @@
                  [
                      _Ty=OgreBites::Widget *
                  ]
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(12): warning C4244: 'argument' : conversion from 'int' to 'const Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(44): warning C4244: 'argument' : conversion from 'const int' to 'Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(75): warning C4244: 'initializing' : conversion from 'double' to 'Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(80): warning C4244: 'argument' : conversion from 'int' to 'const Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(86): warning C4244: 'argument' : conversion from 'int' to 'const Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(98): warning C4244: 'argument' : conversion from 'int' to 'const Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(109): warning C4244: 'argument' : conversion from 'int' to 'const Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(120): warning C4244: 'argument' : conversion from 'int' to 'const Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(136): warning C4244: 'argument' : conversion from 'const int' to 'Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(161): warning C4244: 'argument' : conversion from 'const int' to 'Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(184): warning C4244: 'argument' : conversion from 'int' to 'Ogre::Real', possible loss of data
-     1>c:\hlocal\ig\ig2-ogre\holaogre\sinbadman.cpp(206): warning C4244: 'argument' : conversion from 'int' to 'Ogre::Real', possible loss of data
+     1>c:\hlocal\ig\ig2-ogre\holaogre\bombman.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\hlocal\ig\ig2-ogre\holaogre\bombman.h(5): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\hlocal\ig\ig2-ogre\holaogre\bombman.h(47): warning C4244: 'initializing' : conversion from 'double' to 'Ogre::Real', possible loss of data
+     1>c:\hlocal\ig\ig2-ogre\holaogre\holaapp.cpp(159): warning C4244: 'argument' : conversion from 'Ogre::Real' to 'Ogre::uint', possible loss of data
        Link:
          C:\software\programacion\MSVStudio2013\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\hlocal\IG\IG2-Ogre\bin\HolaOGREDebug.exe" /INCREMENTAL /NOLOGO OgreMain_d.lib OgreBites_d.lib OgreRTShaderSystem_d.lib OgreOverlay_d.lib SDL2.lib SDL2main.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\hlocal\IG\IG2-Ogre\bin\HolaOGREDebug.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\hlocal\IG\IG2-Ogre\bin\HolaOGREDebug.lib" /MACHINE:X86 Debug\BombMan.obj
          Debug\HolaApp.obj
@@ -624,4 +616,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.96
+Time Elapsed 00:00:04.94

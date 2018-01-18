@@ -178,3 +178,4 @@ void HolaApp::setupScene(void)
   rayScnQuery->setQueryMask(MY_QUERY_MASK);
   rayScnQuery->setSortByDistance(true);
 }
+

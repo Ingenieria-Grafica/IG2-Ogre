@@ -16,7 +16,8 @@ fragment_program MandelbrotFS1 glsl
 		param_named InColor float4 0.5 0.5 1.0 1.0
 		param_named OutColor1 float4 0.5 0.25 1.0 1.0
 		param_named OutColor2 float4 1.0 0.5 0.25 1.0
-	
+		param_named_auto FB time_0_1 1
+
 	}
 }
 
