@@ -47,7 +47,5 @@ protected:
 	Ogre::Real longitudPasoBomb = duracion / 4.0;	//Igual que el sinbad, no estoy inspirado.
 
 	void particleAnimation(Ogre::NodeAnimationTrack * trackBomb);
-
-
 };
 #endif

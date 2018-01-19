@@ -23,9 +23,6 @@ KnotMan::KnotMan(SceneNode* sceneNode) : EntityMan(sceneNode)
 
 KnotMan::~KnotMan()
 {
-	delete list;
-	delete sceneNode_;
-	delete entity_Knot;
 }
 
 void KnotMan::frameRendered(const Ogre::FrameEvent& event) {

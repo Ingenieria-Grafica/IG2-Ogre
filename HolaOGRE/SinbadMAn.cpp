@@ -65,27 +65,7 @@ SinbadMan::SinbadMan(SceneNode * sceneNode) : EntityMan(sceneNode)
 
 SinbadMan::~SinbadMan()
 {
-	//Entidades
-	delete entity_;
-	delete espada1_;
-	delete espada2_;
-	delete knotFly_; //La puta mosca
-
-	//Animaciones
-	delete animation_Walk;
-	delete animation_Bomb;
-	delete animation_Die;
-
-	///Anim States
-	delete  animState_Run;
-	delete  animState_RunTop;		//Ahora tambien mueve los brazos.
-	delete  animationState_Walk;
-	delete  animationState_Bomb;
-	delete  animationState_Die;
-	///Tracks
-	delete trackWalk;
-	delete trackBomb;
-	delete trackDie;
+	// MyApplicationContext::removeInputListener(list);
 }
 
 void SinbadMan::animCaminadoCuadrado() {

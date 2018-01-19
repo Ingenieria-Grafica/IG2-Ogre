@@ -126,7 +126,7 @@ void HolaApp::setupScene(void)
   //vp->setBackgroundColour(ColourValue(0, 0, 0));
   //vp->setDimensions(1,1, 1, 1);
 
-  ///////////////////////////////////////////////////////////////
+  //**************************************************************//
   // Sinbad
   nodeSinbad = scnMgr->getRootSceneNode()->createChildSceneNode("nSinbad");
   SinbadMan* sinbad = new SinbadMan(nodeSinbad);
@@ -171,7 +171,7 @@ void HolaApp::setupScene(void)
   // nMgr->setSkyPlane(true, Plane(Vector3::UNIT_Z, -20),
 	// "Ejemplo2", 1, 1, true, 4.0, 100, 100);
   scnMgr->setSkyPlane(true, Plane(Vector3::UNIT_Z, -100),
-  "mandelbrot1", 1, 1, true, 1.0, 100, 100);
+  "mandelbrot1", 1, 1, true, 6.0, 100, 100);
 
   // SceneQueries
   rayScnQuery->setQueryTypeMask(SceneManager::ENTITY_TYPE_MASK);
